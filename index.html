@@ -193,28 +193,35 @@
     <div class="col text-center">
       <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Join Our Party</h2>
     </div>
-      <form id="wedding-form">
+      <form name="rsvp" method="POST" data-netlify="true">
           <div class="row">
               <div class="col md-6 pb-3">
                   <div class="form-group">
-                      <label for="name-input">Your name(s)*</label>
-                      <input class="form-control" id="name-input" type="text" name="name"
-                              required="required"/>
+                      <label for="name-input">Your name(s)</label>
+                      <input class="form-control" id="name-input" type="text" name="name"/>
                   </div>
               </div>
               <div class="col-md-6 pb-3">
                   <div class="form-group">
-                      <label for="email-input">Your email(s)*</label>
+                      <label for="email-input">Your email(s)</label>
                       <input class="form-control" id="email-input" type="text"
-                              name="email" required="required"/>
+                              name="email"/>
                   </div>
               </div>
           </div>
           <div class="row">
               <div class="col-md-6 pb-3">
                   <div class="form-group">
-                      <label for="event-input">Events your party plan to attend*</label>
-                      <input class="form-control" id="event-input" type="text" name="event" required="required">
+                      <label for="event-input">Events your party plan to attend</label>
+                      <input class="form-control" id="event-input" type="text" name="event">
+                  </div>
+              </div>
+          </div>
+                <div class="row">
+              <div class="col-md-6 pb-3">
+                  <div class="form-group">
+                      <label for="message-input">Message </label>
+                      <textarea class="form-control" id="message-input"></textarea>
                   </div>
               </div>
           </div>
@@ -237,33 +244,5 @@
     <script src="scripts/aos.js?ver=1.1.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
-    <script>
-      $('#wedding-form').on('submit', function (e) {
-          //optional validation code here
-
-          e.preventDefault();
-
-          $.ajax({
-              url: "https://script.google.com/macros/s/AKfycbycxmI7Kr9IGbB-ut9i-DlOiI2fTSjHIraBP1-0FwAG_kNtTU-3hHntiKnuVYeLrRaUmg/exec",
-              method: "POST",
-              dataType: "json",
-              data: $("#wedding-form").serialize(),
-              success: function (response) {
-                  console.log($("#wedding-form").serialize());
-
-                  if (response.result == "success") {
-                      $('#wedding-form')[0].reset();
-                      alert('Thank you for submitting your RSVP.');
-                      return true;
-                  } else {
-                      alert("The form was not submitted successfully. Please let Jake and Zoe know and try again later.")
-                  }
-              },
-              error: function () {
-                  alert("The form failed. Please let Jake and Zoe know and try again later.")
-              }
-          })
-      });
-    </script>
   </body>
 </html>
