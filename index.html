@@ -244,12 +244,11 @@
           e.preventDefault();
 
           $.ajax({
-              url: "https://script.google.com/macros/s/AKfycbze7cmQX2yQTBan3A3rpBOa0eUSSICP-cNDqy6ifA-m61GSHuEQYAbfdqtp17g4VkJELw/exec",
+              url: "https://script.google.com/macros/s/AKfycbycxmI7Kr9IGbB-ut9i-DlOiI2fTSjHIraBP1-0FwAG_kNtTU-3hHntiKnuVYeLrRaUmg/exec",
               method: "POST",
               dataType: "json",
               data: $("#wedding-form").serialize(),
               success: function (response) {
-                  console.log("response!");
                   console.log($("#wedding-form").serialize());
 
                   if (response.result == "success") {
